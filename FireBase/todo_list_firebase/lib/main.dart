@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:todo_list_firebase/firebase_options.dart';
 import 'package:todo_list_firebase/views/auth_view.dart';
 
+import 'firebase_options.dart';
+
 void main() async{
   //garante o construção dos Widgets antes de inicar a conexão
   WidgetsFlutterBinding.ensureInitialized();
