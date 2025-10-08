@@ -1,0 +1,28 @@
+import 'dart:convert';
+
+import 'package:geolocator/geolocator.dart';
+import 'package:http/http.dart' as http;
+
+class ClimaService {
+  //atributos static
+  static const String baseUrl =
+      "https://api.openweathermap.org/data/2.5/weather";
+  static const String apikey = "90290436d34bb91b4d852afe49197129";
+
+  //método para buscar o clima a partir da latitude e longitude
+  static Future<Map<String, dynamic>> getCityWeatherByPosition(
+    Position position,
+  ) async {
+    final response = await http.get(
+      Uri.parse(
+        "$baseUrl?appid=$apikey&lat=${position.latitude}&lon=${position.longitude}",
+      ),
+    );
+    //verificar a resposta da solicitação
+    if (response.statusCode == 200) {
+      return jsonDecode(response.body);
+    } else {
+      throw Exception("Cidade não encontrada");
+    }
+  }
+}
