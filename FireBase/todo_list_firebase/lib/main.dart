@@ -1,8 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:todo_list_firebase/firebase_options.dart';
 import 'package:todo_list_firebase/views/auth_view.dart';
 
+// ignore: duplicate_import
 import 'firebase_options.dart';
 
 void main() async{
